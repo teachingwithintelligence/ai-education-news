@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Education News - February 13, 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .header .date {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .header .subtitle {
+            font-size: 1.1rem;
+            color: #777;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .news-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card.featured {
+            grid-column: span 2;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .news-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+
+        .news-card .source {
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .news-card .source a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .news-card .source a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+            color: white;
+        }
+
+        .news-card .amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .news-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .news-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .news-card li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .stats-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc, #edf2f7);
+            border-radius: 10px;
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .themes-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .theme-item {
+            padding: 20px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .theme-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .theme-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .news-card.featured {
+                grid-column: span 1;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .news-card {
+                padding: 20px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>AI & Education News</h1>
+            <div class="date">February 13, 2026</div>
+            <div class="subtitle">Latest developments in artificial intelligence and education across K-12 and higher education</div>
+        </header>
+
+        <div class="news-grid">
+            <article class="news-card featured">
+                <div class="source">
+                    <a href="https://www.dol.gov/newsroom/releases/eta/eta20260213" target="_blank">US Department of Labor</a>
+                </div>
+                <h2>US Department of Labor Releases AI Literacy Framework</h2>
+                <div class="amount">🎓</div>
+                <ul>
+                    <li>Framework outlines five foundational content areas and seven delivery principles</li>
+                    <li>Guides nationwide AI literacy efforts across workforce and education systems</li>
+                    <li>Allows flexibility across industries, roles, and educational sectors</li>
+                    <li>Supports Trump Administration's AI Action Plan and America's Talent Strategy</li>
+                    <li>Framework will evolve based on stakeholder input and labor market changes</li>
+                </ul>
+                <a href="https://www.dol.gov/newsroom/releases/eta/eta20260213" target="_blank" class="read-more">Read Full Article →</a>
+            </article>
+
+            <article class="news-card">
+                <div class="source">
+                    <a href="https://www.insidehighered.com/news/faculty-issues/learning-assessment/2026/02/13/faculty-moving-away-outright-bans-ai-study-finds" target="_blank">Inside Higher Ed</a>
+                </div>
+                <h2>Faculty Moving Away From Outright AI Bans</h2>
+                <div class="amount">63% → 49%</div>
+                <ul>
+                    <li>Study analyzed 31,692 course syllabi from 2021-2025</li>
+                    <li>Academic integrity concerns dropped from 63% to 49%</li>
+                    <li>Attribution requirements increased from 1% to 29%</li>
+                    <li>79% ban AI for drafting, but only 17% for editing</li>
+                    <li>Faculty shifting toward task-specific AI policies</li>
+                </ul>
+                <a href="https://www.insidehighered.com/news/faculty-issues/learning-assessment/2026/02/13/faculty-moving-away-outright-bans-ai-study-finds" target="_blank" class="read-more">Read Full Article →</a>
+            </article>
+
+            <article class="news-card">
+                <div class="source">
+                    <a href="https://www.bu.edu/questrom/blog/bu-questrom-launches-online-ms-in-artificial-intelligence-in-business/" target="_blank">Boston University</a>
+                </div>
+                <h2>BU Launches Online MS in AI in Business</h2>
+                <div class="amount">$25K</div>
+                <ul>
+                    <li>32-credit program offered 100% online</li>
+                    <li>Total tuition of $25,000 for working professionals</li>
+                    <li>Focus on AI governance and organizational implementation</li>
+                    <li>Inaugural cohort begins August 2026</li>
+                    <li>Addresses "messy middle" of AI adoption in organizations</li>
+                </ul>
+                <a href="https://www.bu.edu/questrom/blog/bu-questrom-launches-online-ms-in-artificial-intelligence-in-business/" target="_blank" class="read-more">Read Full Article →</a>
+            </article>
+
+            <article class="news-card">
+                <div class="source">
+                    <a href="https://www.edsurge.com/news/2026-02-12-can-ai-help-students-navigate-the-career-chaos-it-s-creating" target="_blank">EdSurge</a>
+                </div>
+                <h2>AI Career Counseling Tools Emerge Amid Shortage</h2>
+                <div class="amount">645:1</div>
+                <ul>
+                    <li>Arizona has 645 students per counselor vs 250 recommended</li>
+                    <li>EduPolaris AI's "Eddie" platform piloted in Title I schools</li>
+                    <li>Youth unemployment rates increasing, college readiness dipping</li>
+                    <li>Students increasingly interested in non-college pathways</li>
+                    <li>Concerns about losing human touch in career guidance</li>
+                </ul>
+                <a href="https://www.edsurge.com/news/2026-02-12-can-ai-help-students-navigate-the-career-chaos-it-s-creating" target="_blank" class="read-more">Read Full Article →</a>
+            </article>
+        </div>
+
+        <section class="stats-section">
+            <h3>Key Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number pulse">85%</span>
+                    <div class="stat-label">Teachers used AI in 2024-2025</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">86%</span>
+                    <div class="stat-label">Students used AI in 2024-2025</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">29%</span>
+                    <div class="stat-label">Syllabi requiring AI attribution</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">$25K</span>
+                    <div class="stat-label">BU online AI business degree tuition</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="themes-section">
+            <h3>Key Themes Emerging</h3>
+            <div class="themes-grid">
+                <div class="theme-item">
+                    <h4>Federal AI Literacy Push</h4>
+                    <p>US Department of Labor releases comprehensive framework to guide AI skill development across education and workforce systems</p>
+                </div>
+                <div class="theme-item">
+                    <h4>Policy Evolution</h4>
+                    <p>Faculty moving from blanket AI bans to nuanced, task-specific policies based on pedagogical value</p>
+                </div>
+                <div class="theme-item">
+                    <h4>Affordable AI Education</h4>
+                    <p>Universities launching accessible online AI programs to meet growing demand from working professionals</p>
+                </div>
+                <div class="theme-item">
+                    <h4>Career Counseling Crisis</h4>
+                    <p>Severe counselor shortages driving adoption of AI tools to support students navigating uncertain job markets</p>
+                </div>
+                <div class="theme-item">
+                    <h4>Widespread Adoption</h4>
+                    <p>Over 85% of both teachers and students now using AI tools, fundamentally changing classroom dynamics</p>
+                </div>
+                <div class="theme-item">
+                    <h4>Attribution Over Prohibition</h4>
+                    <p>Shift from preventing AI use to requiring transparency and proper attribution in academic work</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>News compiled from multiple sources including US Department of Labor, Inside Higher Ed, Boston University, EdSurge, and others.</p>
+            <p>Data current as of February 13, 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        // Add smooth scrolling and interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on scroll
+            const cards = document.querySelectorAll('.news-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add click effects to stat items
+            const statItems = document.querySelectorAll('.stat-item');
+            statItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 200);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
